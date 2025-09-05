@@ -63,3 +63,7 @@ frontend/.env
 .env.production.local
 !backend/.env.example
 !frontend/.env.example
+
+
+doc/stablecoin.md
+doc/deployment.md

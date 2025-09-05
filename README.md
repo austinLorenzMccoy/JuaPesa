@@ -230,6 +230,7 @@ Recommended workflow:
 - Backend specifics: `backend/README.md`
 - Frontend specifics: `frontend/README.md`
 - Contracts specifics: `contract/README.md`
+- Deployment Guide: `doc/deployment.md`
 
 ---
 

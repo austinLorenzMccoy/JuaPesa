@@ -1,5 +1,18 @@
 # Jua Pesa — AI Liquidity Network
 
+<p align="center">
+  <img src="frontend/public/JuaPesa%20logo.jpg" alt="Jua Pesa" width="480" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/adachijioke/JuaPesa/actions/workflows/ci.yml">
+    <img alt="CI" src="https://github.com/adachijioke/JuaPesa/actions/workflows/ci.yml/badge.svg" />
+  </a>
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white" />
+  <img alt="Node" src="https://img.shields.io/badge/Node.js-20+-339933?logo=node.js&logoColor=white" />
+  <img alt="License" src="https://img.shields.io/badge/License-Private-lightgrey" />
+</p>
+
 Enable near-instant, low-cost, compliant cross-wallet transfers across African mobile money rails by routing liquidity through regulated stablecoin pools and an AI-driven router.
 
 > Interoperable, affordable, and instant money movement across Africa.

@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Mode - Clean Crypto Look */
+    --background: 0 0% 98%; /* Milk white */
+    --background-gradient: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 95%), hsl(0 0% 92%), hsl(0 0% 95%), hsl(0 0% 98%));
+    --foreground: 0 0% 8%; /* Pure dark */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 0 0% 15%; /* Sophisticated dark */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 0% 25%;
+    --primary-dim: 0 0% 8%;
+
+    --secondary: 0 0% 85%; /* Light grey */
+    --secondary-foreground: 0 0% 15%;
+    --secondary-glow: 0 0% 75%;
+
+    --accent: 43 74% 60%; /* Elegant gold accent */
+    --accent-foreground: 0 0% 8%;
+    --accent-glow: 43 74% 70%;
+
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - Premium Crypto */
+    --background: 0 0% 7%; /* Deep black */
+    --background-gradient: linear-gradient(135deg, hsl(0 0% 7%), hsl(0 0% 10%), hsl(0 0% 13%), hsl(0 0% 10%), hsl(0 0% 7%));
+    --foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 95%; /* Clean white */
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 43 74% 60%; /* Gold accent */
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 213 94% 68%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .font-crypto {
+    font-family: 'Orbitron', 'Inter', monospace;
+  }
+
+  /* Enhanced gradient utilities */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+  }
+
+  .gradient-mesh {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1), hsl(var(--accent) / 0.1));
+  }
+
+  .glass-card {
+    background: rgba(24, 30, 42, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 1px 2px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card-light {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .crypto-shadow {
+    box-shadow: 
+      0 20px 50px rgba(168, 85, 247, 0.15),
+      0 10px 20px rgba(6, 182, 212, 0.1),
+      0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .crypto-shadow-hover {
+    box-shadow: 
+      0 25px 60px rgba(168, 85, 247, 0.25),
+      0 15px 30px rgba(6, 182, 212, 0.15),
+      0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .modern-nav {
+    background: rgba(24, 30, 42, 0.95);
+    backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-glow {
+    background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.15) 0%, rgba(6, 182, 212, 0.1) 40%, transparent 70%);
+  }
+
+  .floating-orb {
+    border-radius: 50%;
+    background: linear-gradient(45deg, hsl(var(--primary) / 0.4), hsl(var(--accent) / 0.3));
+    filter: blur(60px);
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--secondary) / 0.2); }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .click-scale {
+    transition: transform 0.1s ease;
+  }
+
+  .click-scale:active {
+    transform: scale(0.95);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+}

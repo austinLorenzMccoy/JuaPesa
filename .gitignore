@@ -57,12 +57,14 @@ log/
 
 # Env files
 frontend/.env
+contract/.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 !backend/.env.example
 !frontend/.env.example
+!contract/.env.example
 
 
 doc/stablecoin.md

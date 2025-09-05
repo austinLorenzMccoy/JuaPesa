@@ -179,6 +179,44 @@ npm test
 
 Solidity config: `contract/hardhat.config.js`. Example contract is `contracts/LiquidityPool.sol` with tests in `test/`.
 
+### Deploy to Sepolia
+
+Requirements:
+
+- Copy `contract/.env.example` to `contract/.env` and fill in:
+  - `SEPOLIA_RPC_URL` — your Alchemy/Infura/QuickNode RPC URL for Sepolia.
+  - `PRIVATE_KEY` — private key for a testnet wallet with a small amount of Sepolia ETH. Use a dedicated test account only.
+  - `ETHERSCAN_API_KEY` — optional, enables verification.
+
+Steps:
+
+```bash
+cd contract
+npm ci
+npm run build
+# Deploy LiquidityPool to Sepolia
+npm run deploy:sepolia
+```
+
+Outputs:
+
+- The deployed address will be printed in the terminal.
+- A deployment artifact is saved at `contract/deployments/sepolia.json` containing `network`, `contract`, `address`, `deployer`, and `timestamp`.
+
+Optional: verify on Etherscan (if `ETHERSCAN_API_KEY` is set):
+
+```bash
+# Replace <ADDRESS> with the address from the deploy step
+npx hardhat verify --network sepolia <ADDRESS>
+# or using npm script
+npm run verify:sepolia -- <ADDRESS>
+```
+
+Front-end integration tip:
+
+- ABI is available at `contract/artifacts/contracts/LiquidityPool.sol/LiquidityPool.json`.
+- You can copy the ABI and deployed address into the frontend (for example, `frontend/src/abi/` and a config file) or add a small script to export them automatically.
+
 ---
 
 ## 🔗 Monorepo & Subtree Workflow

@@ -1,0 +1,10 @@
+name: juapesa
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip>=23.0
+  - nodejs>=20  # for running Hardhat if desired from conda env
+  - pip:
+      - -e .[dev]

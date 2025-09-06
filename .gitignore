@@ -69,3 +69,5 @@ contract/.env
 
 doc/stablecoin.md
 doc/deployment.md
+
+.ipynb_checkpoints

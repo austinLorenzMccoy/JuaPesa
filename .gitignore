@@ -65,6 +65,7 @@ contract/.env
 !backend/.env.example
 !frontend/.env.example
 !contract/.env.example
+contract/.env.example
 
 
 doc/stablecoin.md

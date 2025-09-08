@@ -70,5 +70,6 @@ contract/.env.example
 
 doc/stablecoin.md
 doc/deployment.md
+doc/demo_day_QA.md
 
 .ipynb_checkpoints

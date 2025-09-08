@@ -17,7 +17,7 @@ from app.models.schemas import (
 from app.services.wallet import WalletService
 from app.services.liquidity import LiquidityService
 from app.services.auth import AuthService
-from app.integrations.daraja import DarajaClient
+from app.integrations.integration_factory import get_daraja_client
 from app.services.forecast import ForecastService
 
 router = APIRouter()
@@ -75,7 +75,8 @@ async def kyc_verify(req: KYCRequest):
 @router.post("/daraja/debit", response_model=DarajaDebitResponse)
 async def daraja_debit(req: DarajaDebitRequest):
     try:
-        res = DarajaClient().simulate_debit(req.phone, req.amount)
+        client = get_daraja_client()
+        res = client.simulate_debit(req.phone, req.amount)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     return DarajaDebitResponse(**res)

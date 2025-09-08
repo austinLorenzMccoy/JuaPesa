@@ -14,6 +14,10 @@ class Settings(BaseSettings):
     REDIS_URL: str | None = None
     # Comma-separated list of allowed origins for CORS, e.g. "http://localhost:5173,https://app.example.com"
     ALLOWED_ORIGINS: str | None = None
+    # Integration feature flags: default to stubs for demo/test friendliness
+    USE_STUB_DARAJA: bool = True
+    USE_STUB_CCTP: bool = True
+    USE_STUB_HEDERA: bool = True
 
     model_config = SettingsConfigDict(env_file=".env", env_ignore_empty=True, extra="ignore")
 

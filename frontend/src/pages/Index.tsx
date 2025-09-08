@@ -15,7 +15,15 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section
+        className="relative overflow-hidden"
+        style={{
+          backgroundImage:
+            "url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUTExMWFhUXFxcYFRgXFhgYFxgYGxgaFxcaHRoYHSggGB0lHRcXITEiJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGy0mICU1LS0tLS0tLSstLS0tLTUtLS0vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALMBGQMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAAEBQMGAAECB//EAEYQAAEDAgMEBwUFBQYFBQAAAAEAAhEDIQQSMQVBUWEGInGBkaHwE7HB0eEjMkJSchRigrLxByQzY5LCFTRDc6IWg7PD0v/EABoBAAMBAQEBAAAAAAAAAAAAAAIDBAEABQb/xAAwEQACAgIBAwIEBQMFAAAAAAAAAQIRAyExBBJBEyIyUWFxgaHB0fAjM0IUYpGx8f')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         {/* Floating Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div 
@@ -58,7 +66,7 @@ const Index = () => {
             }}
           />
         </div>
-        <div className="hero-glow absolute inset-0" />
+        <div className="hero-glow absolute inset-0 bg-black/40" />
         <div className="container mx-auto px-6 py-32 text-center relative z-10">
           <div className="space-y-10 max-w-5xl mx-auto">
             <div className="space-y-6">

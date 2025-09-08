@@ -2,22 +2,16 @@ import { BalanceOverview } from "@/components/ui/balance-overview";
 import { CryptoCard } from "@/components/ui/crypto-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Navigation } from "@/components/ui/navigation";
 import { ArrowUpRight, ArrowDownLeft, Plus, Send, Calendar, TrendingUp, Activity } from "lucide-react";
+import DashboardLayout from "@/layouts/DashboardLayout";
+import { mockTransactions } from "@/mocks/data";
 
 const Dashboard = () => {
-  const recentTransactions = [
-    { id: 1, type: "deposit", amount: "+KSH 5,000", description: "Mobile Money Deposit", time: "2 hours ago", status: "completed" },
-    { id: 2, type: "loan", amount: "-KSH 10,000", description: "Personal Loan Disbursement", time: "1 day ago", status: "completed" },
-    { id: 3, type: "saving", amount: "+KSH 2,500", description: "Auto-Save Transfer", time: "3 days ago", status: "completed" },
-    { id: 4, type: "payment", amount: "-KSH 1,200", description: "Loan Repayment", time: "5 days ago", status: "completed" },
-  ];
+  const recentTransactions = mockTransactions;
 
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      
-      <div className="container mx-auto px-6 py-12 space-y-12">
+    <DashboardLayout>
+      <div className="mx-auto max-w-7xl space-y-12">
         {/* Welcome Section */}
         <div className="text-center space-y-6">
           <div className="space-y-2">
@@ -144,9 +138,9 @@ const Dashboard = () => {
                     </div>
                     <div className="text-right">
                       <p className={`font-bold text-sm ${
-                        transaction.amount.startsWith('+') ? 'text-secondary' : 'text-foreground'
+                        transaction.amount >= 0 ? 'text-secondary' : 'text-foreground'
                       }`}>
-                        {transaction.amount}
+                        {(transaction.amount >= 0 ? '+' : '-') + transaction.currency + ' ' + Math.abs(transaction.amount).toLocaleString()}
                       </p>
                       <p className="text-xs text-muted-foreground capitalize">{transaction.status}</p>
                     </div>
@@ -160,7 +154,7 @@ const Dashboard = () => {
           </Card>
         </div>
       </div>
-    </div>
+    </DashboardLayout>
   );
 };
 

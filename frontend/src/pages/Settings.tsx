@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Navigation } from "@/components/ui/navigation";
-import { Footer } from "@/components/ui/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,6 +9,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import DashboardLayout from "@/layouts/DashboardLayout";
 import { 
   Settings as SettingsIcon,
   User,
@@ -352,38 +351,16 @@ const Settings = () => {
   const [activeSection, setActiveSection] = useState('profile');
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-24">
-        <div className="hero-glow absolute inset-0" />
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold font-crypto mb-6">
-              Account <span className="gradient-primary bg-clip-text text-transparent">Settings</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Manage your profile, security, notifications, and preferences all in one place.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Settings Content */}
-      <section className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    <DashboardLayout>
+      <section className="mx-auto max-w-7xl py-6 md:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Settings Navigation */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-1"
           >
-            <div className="glass-card rounded-2xl p-6 sticky top-24">
+            <div className="glass-card rounded-2xl p-6 sticky top-16 md:top-20">
               <h2 className="text-xl font-bold font-crypto mb-6">Settings</h2>
               <nav className="space-y-2">
                 {settingSections.map((section) => (
@@ -432,9 +409,7 @@ const Settings = () => {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </DashboardLayout>
   );
 };
 

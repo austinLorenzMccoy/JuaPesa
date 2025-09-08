@@ -87,11 +87,11 @@ Mobile money is massive (\~\$1.4T annual volume in Sub-Saharan Africa), but **in
 git clone https://github.com/<your-org>/jua-pesa.git
 cd jua-pesa
 
-# Install dependencies
-pnpm install   # or yarn install
+# Install dependencies (within ./frontend)
+pnpm install   # or npm install / yarn install
 
-# Run frontend
-pnpm dev       # starts Vite + React dev server
+# Run frontend (Vite dev server)
+pnpm dev       # starts on http://localhost:5173
 
 # Run backend (example microservice)
 cd backend && pnpm dev
@@ -145,6 +145,33 @@ POST /api/convert
 
 ---
 
+## ✨ Recent UI Updates
+
+- __Landing page background__: Hero section now uses a branded background image with an accessibility-friendly dark overlay. See `src/pages/Index.tsx`.
+- __Dashboard layout__: A new `DashboardLayout` wraps app pages with a responsive, collapsible sidebar and a sticky top bar. See `src/layouts/DashboardLayout.tsx`.
+- __Sidebar persistence__: The sidebar open/collapsed state is persisted in `localStorage` for a better UX across reloads. See `src/components/ui/sidebar.tsx`.
+- __Settings inside dashboard__: The Settings page now renders within the dashboard layout (with sidebar). See `src/pages/Settings.tsx`.
+- __404 redirect__: Unknown routes auto-redirect to `/dashboard` (if logged in) or `/` after 2 seconds, with a fallback link. See `src/pages/NotFound.tsx`.
+
+## 🧪 Mock Data
+
+Front-end demo screens use light mock data aligned with backend models:
+
+- __Transactions__: `src/mocks/data.ts` exports `mockTransactions`. `src/pages/Dashboard.tsx` renders these.
+- __User__: `AuthContext` uses localStorage to mock auth state and profile updates.
+- __Forecast/summary__: Example shapes provided for potential integration in widgets.
+
+This allows the UI to run without a live backend while preserving wire formats.
+
+## 🧭 Navigation & Layout
+
+- __Home__ (`/`) — Marketing/landing page.
+- __Dashboard__ (`/dashboard`) — Sidebar layout (collapsible, persistent, responsive).
+- __Settings__ (`/settings`) — Rendered inside the dashboard layout.
+- __Not Found__ (`*`) — Redirects to `/` or `/dashboard` with a short delay.
+
+## 📱 Responsiveness
+
+All pages are responsive. The sidebar collapses to an icon rail on smaller viewports and becomes an off-canvas drawer on mobile.
+
 ## 📜 License
-
-

@@ -3,7 +3,8 @@
 <p align="center">
   <img src="frontend/public/JuaPesa%20logo.jpg" alt="Jua Pesa" width="480" />
 </p>
-
+<p align="center">
+  <section> Adachukwu Okafor - github.com/adachijioke (Frontend engineer)Austin Chibueze -  github.com/austinLorenzMccoy (Backend/AI Engineer)<section>
 <p align="center">
   <a href="https://github.com/adachijioke/JuaPesa/actions/workflows/ci.yml">
     <img alt="CI" src="https://github.com/adachijioke/JuaPesa/actions/workflows/ci.yml/badge.svg" />

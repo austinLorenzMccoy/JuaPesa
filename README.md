@@ -19,6 +19,12 @@ Enable near-instant, low-cost, compliant cross-wallet transfers across African m
 
 ---
 
+## Team Members
+
+- Adachukwu Okafor - github.com/adachijioke (Frontend engineer)
+- Austin Chibueze -  github.com/austinLorenzMccoy (Backend/AI Engineer)
+  
+
 ## ✨ Highlights
 
 - FastAPI backend with modular architecture and 100% test coverage gate
@@ -65,7 +71,7 @@ JuaPesa/
 ```
 
 ---
-
+  
 ## 🧰 Prerequisites
 
 - Python 3.10+

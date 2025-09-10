@@ -7,6 +7,9 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
+import Transfer from "./pages/Transfer";
+import Deposit from "./pages/Deposit";
+import Withdraw from "./pages/Withdraw";
 import Loans from "./pages/Loans";
 import Savings from "./pages/Savings";
 import History from "./pages/History";
@@ -26,7 +29,10 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/loans" element={<Loans />} />
+          <Route path="/transfer" element={<Transfer />} />
+          <Route path="/deposit" element={<Deposit />} />
+          <Route path="/withdraw" element={<Withdraw />} />
+          <Route path="/loans" element={<Loans />} />
               <Route path="/savings" element={<Savings />} />
               <Route path="/history" element={<History />} />
               <Route path="/settings" element={<Settings />} />

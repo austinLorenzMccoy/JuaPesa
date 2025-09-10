@@ -2,21 +2,32 @@ import { BalanceOverview } from "@/components/ui/balance-overview";
 import { CryptoCard } from "@/components/ui/crypto-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Navigation } from "@/components/ui/navigation";
 import { ArrowUpRight, ArrowDownLeft, Plus, Send, Calendar, TrendingUp, Activity } from "lucide-react";
-import DashboardLayout from "@/layouts/DashboardLayout";
-import { mockTransactions } from "@/mocks/data";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const recentTransactions = mockTransactions;
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  
+  const recentTransactions = [
+    { id: 1, type: "deposit", amount: "+KSH 5,000", description: "Mobile Money Deposit", time: "2 hours ago", status: "completed" },
+    { id: 2, type: "loan", amount: "-KSH 10,000", description: "Personal Loan Disbursement", time: "1 day ago", status: "completed" },
+    { id: 3, type: "saving", amount: "+KSH 2,500", description: "Auto-Save Transfer", time: "3 days ago", status: "completed" },
+    { id: 4, type: "payment", amount: "-KSH 1,200", description: "Loan Repayment", time: "5 days ago", status: "completed" },
+  ];
 
   return (
-    <DashboardLayout>
-      <div className="mx-auto max-w-7xl space-y-12">
+    <div className="min-h-screen">
+      <Navigation />
+      
+      <div className="container mx-auto px-6 py-12 space-y-12">
         {/* Welcome Section */}
         <div className="text-center space-y-6">
           <div className="space-y-2">
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Welcome back, John!
+              Welcome back, {user?.name || 'User'}!
             </h1>
             <p className="text-xl text-muted-foreground">Manage your financial future with JuaPesa</p>
           </div>
@@ -40,19 +51,38 @@ const Dashboard = () => {
         <div className="space-y-6">
           <h2 className="text-2xl font-bold">Quick Actions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Button size="xl" className="h-24 flex-col space-y-3 gradient-primary text-white hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 rounded-2xl group">
+            <Button 
+              size="xl" 
+              className="h-24 flex-col space-y-3 gradient-primary text-white hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 rounded-2xl group"
+              onClick={() => navigate('/loans')}
+            >
               <Plus className="h-7 w-7 group-hover:scale-110 transition-transform" />
               <span className="font-medium">Apply for Loan</span>
             </Button>
-            <Button variant="outline" size="xl" className="h-24 flex-col space-y-3 border-white/20 hover:bg-white/5 rounded-2xl group">
+            <Button 
+              variant="outline" 
+              size="xl" 
+              className="h-24 flex-col space-y-3 border-white/20 hover:bg-white/5 rounded-2xl group"
+              onClick={() => navigate('/deposit')}
+            >
               <ArrowUpRight className="h-7 w-7 text-secondary group-hover:scale-110 transition-transform" />
               <span className="font-medium">Deposit</span>
             </Button>
-            <Button variant="outline" size="xl" className="h-24 flex-col space-y-3 border-white/20 hover:bg-white/5 rounded-2xl group">
+            <Button 
+              variant="outline" 
+              size="xl" 
+              className="h-24 flex-col space-y-3 border-white/20 hover:bg-white/5 rounded-2xl group"
+              onClick={() => navigate('/withdraw')}
+            >
               <ArrowDownLeft className="h-7 w-7 text-primary group-hover:scale-110 transition-transform" />
               <span className="font-medium">Withdraw</span>
             </Button>
-            <Button variant="outline" size="xl" className="h-24 flex-col space-y-3 border-white/20 hover:bg-white/5 rounded-2xl group">
+            <Button 
+              variant="outline" 
+              size="xl" 
+              className="h-24 flex-col space-y-3 border-white/20 hover:bg-white/5 rounded-2xl group"
+              onClick={() => navigate('/transfer')}
+            >
               <Send className="h-7 w-7 text-secondary group-hover:scale-110 transition-transform" />
               <span className="font-medium">Transfer</span>
             </Button>
@@ -138,9 +168,9 @@ const Dashboard = () => {
                     </div>
                     <div className="text-right">
                       <p className={`font-bold text-sm ${
-                        transaction.amount >= 0 ? 'text-secondary' : 'text-foreground'
+                        transaction.amount.startsWith('+') ? 'text-secondary' : 'text-foreground'
                       }`}>
-                        {(transaction.amount >= 0 ? '+' : '-') + transaction.currency + ' ' + Math.abs(transaction.amount).toLocaleString()}
+                        {transaction.amount}
                       </p>
                       <p className="text-xs text-muted-foreground capitalize">{transaction.status}</p>
                     </div>
@@ -154,7 +184,7 @@ const Dashboard = () => {
           </Card>
         </div>
       </div>
-    </DashboardLayout>
+    </div>
   );
 };
 

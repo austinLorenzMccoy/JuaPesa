@@ -3,15 +3,18 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 interface User {
   id: string;
   email?: string;
+  phone?: string;
   name?: string;
   avatar?: string;
-  provider?: 'email' | 'google' | 'github' | 'wallet';
+  provider?: 'email' | 'phone' | 'google' | 'github' | 'wallet';
 }
 
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<void>;
   signup: (email: string, password: string, name: string) => Promise<void>;
+  loginWithPhone: (phone: string, password: string) => Promise<void>;
+  signupWithPhone: (phone: string, password: string, name: string) => Promise<void>;
   logout: () => void;
   resetPassword: (email: string) => Promise<void>;
   loginWithGoogle: () => Promise<void>;
@@ -140,6 +143,38 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setLoading(false);
   };
 
+  const loginWithPhone = async (phone: string, password: string) => {
+    setLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    const mockUser: User = {
+      id: '5',
+      phone,
+      name: phone,
+      provider: 'phone'
+    };
+    
+    setUser(mockUser);
+    localStorage.setItem('jua_pesa_user', JSON.stringify(mockUser));
+    setLoading(false);
+  };
+
+  const signupWithPhone = async (phone: string, password: string, name: string) => {
+    setLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    const mockUser: User = {
+      id: '6',
+      phone,
+      name,
+      provider: 'phone'
+    };
+    
+    setUser(mockUser);
+    localStorage.setItem('jua_pesa_user', JSON.stringify(mockUser));
+    setLoading(false);
+  };
+
   const updateProfile = async (data: Partial<User>) => {
     if (!user) return;
     
@@ -152,6 +187,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     user,
     login,
     signup,
+    loginWithPhone,
+    signupWithPhone,
     logout,
     resetPassword,
     loginWithGoogle,

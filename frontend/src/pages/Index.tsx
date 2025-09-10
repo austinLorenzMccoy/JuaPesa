@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/ui/navigation";
 import { Footer } from "@/components/ui/footer";
@@ -6,24 +6,27 @@ import { CryptoCard } from "@/components/ui/crypto-card";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { Shield, Zap, Users, TrendingUp, CheckCircle, ArrowRight, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Index = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  // Redirect to dashboard if user is logged in
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard');
+    }
+  }, [user, navigate]);
   
   return (
     <div className="min-h-screen">
       <Navigation />
       
       {/* Hero Section */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          backgroundImage:
-            "url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUTExMWFhUXFxcYFRgXFhgYFxgYGxgaFxcaHRoYHSggGB0lHRcXITEiJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGy0mICU1LS0tLS0tLSstLS0tLTUtLS0vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALMBGQMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAAEBQMGAAECB//EAEYQAAEDAgMEBwUFBQYFBQAAAAEAAhEDIQQSMQVBUWEGInGBkaHwE7HB0eEjMkJSchRigrLxByQzY5LCFTRDc6IWg7PD0v/EABoBAAMBAQEBAAAAAAAAAAAAAAIDBAEABQb/xAAwEQACAgIBAwIEBQMFAAAAAAAAAQIRAyExBBJBEyIyUWFxgaHB0fAjM0IUYpGx8f')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <section className="relative overflow-hidden">
         {/* Floating Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div 
@@ -66,7 +69,7 @@ const Index = () => {
             }}
           />
         </div>
-        <div className="hero-glow absolute inset-0 bg-black/40" />
+        <div className="hero-glow absolute inset-0" />
         <div className="container mx-auto px-6 py-32 text-center relative z-10">
           <div className="space-y-10 max-w-5xl mx-auto">
             <div className="space-y-6">

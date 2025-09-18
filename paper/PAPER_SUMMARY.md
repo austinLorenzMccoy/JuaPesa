@@ -4,6 +4,10 @@
 
 **Title**: "JuaPesa: Bridging Mobile Money Fragmentation with AI-Driven Liquidity Networks"
 
+**Authors**: 
+- Augustine Chibueze (First Author) - Backend/AI Engineer
+- Adachukwu Okafor (Second Author) - Frontend Engineer
+
 **Status**: Ready for arXiv submission
 
 **Word Count**: ~8,500 words (typical for arXiv papers)

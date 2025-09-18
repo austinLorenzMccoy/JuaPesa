@@ -1,0 +1,61 @@
+JuaPesa System Architecture
+
+┌─────────────────────────────────────────────────────────────────┐
+│                        USER INTERFACE                          │
+├─────────────────────────────────────────────────────────────────┤
+│  Feature Phone (USSD)    │    Smartphone (Web)    │    Admin   │
+│      *789#               │    React Frontend      │   Dashboard│
+└─────────────────┬─────────────────┬─────────────────┬───────────┘
+                  │                 │                 │
+                  └─────────────────┼─────────────────┘
+                                    │
+┌─────────────────────────────────────────────────────────────────┐
+│                    USSD GATEWAY & API LAYER                    │
+├─────────────────────────────────────────────────────────────────┤
+│  Session Management  │  Authentication  │  Request Routing     │
+└─────────────────────────────────────────────────────────────────┘
+                                    │
+┌─────────────────────────────────────────────────────────────────┐
+│                    BACKEND SERVICES                            │
+├─────────────────────────────────────────────────────────────────┤
+│  Wallet Service  │  Liquidity Service  │  Forecast Service     │
+│  Auth Service    │  Integration Service │  Compliance Service   │
+└─────────────────┬─────────────────┬─────────────────┬───────────┘
+                  │                 │                 │
+┌─────────────────┼─────────────────┼─────────────────┼───────────┐
+│                 │                 │                 │           │
+│  ┌─────────────┐│  ┌─────────────┐│  ┌─────────────┐│           │
+│  │    AI/ML    ││  │  MOBILE     ││  │ BLOCKCHAIN  ││           │
+│  │   MODELS    ││  │   MONEY     ││  │   LAYER     ││           │
+│  │             ││  │ INTEGRATION ││  │             ││           │
+│  │ • TFT       ││  │             ││  │ • Hedera    ││           │
+│  │ • N-BEATS   ││  │ • M-Pesa    ││  │ • CCTP      ││           │
+│  │ • LSTM      ││  │ • MTN       ││  │ • Smart     ││           │
+│  │ • Mistral   ││  │ • Airtel    ││  │   Contracts ││           │
+│  │   7B        ││  │ • Others    ││  │             ││           │
+│  └─────────────┘│  └─────────────┘│  └─────────────┘│           │
+└─────────────────┴─────────────────┴─────────────────┴───────────┘
+                                    │
+┌─────────────────────────────────────────────────────────────────┐
+│                    STABLECOIN POOLS                            │
+├─────────────────────────────────────────────────────────────────┤
+│  cNGN Pool  │  USDC Pool  │  XAUt Pool  │  Liquidity Router    │
+└─────────────────────────────────────────────────────────────────┘
+
+Data Flow:
+1. User dials *789# or uses web interface
+2. USSD Gateway authenticates and routes request
+3. Backend services process transaction
+4. AI models predict optimal liquidity path
+5. System routes through appropriate stablecoin pools
+6. Blockchain layer handles settlement
+7. Mobile money integration completes transfer
+8. User receives confirmation
+
+Key Features:
+- Real-time liquidity rebalancing
+- Multi-network mobile money support
+- AI-driven demand forecasting
+- Cross-chain stablecoin routing
+- Comprehensive compliance framework
+- Feature phone accessibility

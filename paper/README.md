@@ -139,15 +139,15 @@ This paper is suitable for submission to:
 - **Blockchain conferences** (Consensus, DevCon)
 - **AI/ML conferences** (NeurIPS, ICML workshops)
 
-## 📝 Writing Style
+## 📝 Writing Approach
 
-The paper is written in a **humanized, accessible style** that:
+The paper presents the research in a clear, professional manner that:
 
-- Uses clear, jargon-free language where possible
-- Explains technical concepts with real-world examples
-- Includes concrete numbers and impact metrics
-- Tells a compelling story about the problem and solution
-- Balances technical depth with readability
+- Uses precise, technical language appropriate for academic publication
+- Explains complex concepts with concrete examples and metrics
+- Includes comprehensive performance data and impact analysis
+- Presents a systematic approach to problem-solving and evaluation
+- Maintains academic rigor while ensuring clarity for diverse audiences
 
 ## 🔄 Updates and Revisions
 

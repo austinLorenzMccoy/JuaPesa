@@ -44,29 +44,29 @@
 - **`README.md`**: Detailed submission instructions
 - **Error handling**: Robust compilation process
 
-## 🎨 Writing Style: Humanized & Accessible
+## 🎨 Writing Approach
 
-The paper is written in a **humanized, accessible style** that:
+The paper presents the research in a clear, engaging manner that:
 
 ### ✅ Real-World Examples
-- "Imagine you're a small business owner in Nairobi..."
 - Concrete scenarios that readers can relate to
 - Economic impact with specific numbers
+- Practical applications and use cases
 
 ### ✅ Clear Technical Explanations
-- Jargon-free language where possible
 - Step-by-step explanations of complex concepts
 - Visual aids and diagrams
+- Comprehensive methodology descriptions
 
 ### ✅ Compelling Narrative
 - Problem → Solution → Impact story arc
-- Personal and economic motivations
+- Economic motivations and market context
 - Future vision and implications
 
 ### ✅ Balanced Technical Depth
 - Sufficient detail for technical readers
 - Accessible explanations for broader audience
-- Proper academic rigor with readability
+- Proper academic rigor with comprehensive evaluation
 
 ## 📊 Key Metrics & Results
 
@@ -147,10 +147,10 @@ The paper is written in a **humanized, accessible style** that:
 
 You now have a **complete, publication-ready research paper** that:
 
-- ✅ Tells a compelling story about solving real-world problems
+- ✅ Presents a systematic approach to solving real-world problems
 - ✅ Demonstrates significant technical innovation
 - ✅ Shows measurable economic impact
-- ✅ Is written in an accessible, humanized style
+- ✅ Maintains academic rigor with clear presentation
 - ✅ Meets all arXiv submission requirements
 - ✅ Has comprehensive documentation and tools
 
@@ -158,4 +158,4 @@ You now have a **complete, publication-ready research paper** that:
 
 ---
 
-*Ready to change the world of mobile money? Submit your paper and share your innovation with the global research community!*
+*Ready to submit your research? The paper is now prepared for arXiv submission and academic publication.*
